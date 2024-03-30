@@ -8,20 +8,12 @@
 }
 
 body {
-  color: rgb(var(--nemo-text));
-  background-color: rgb(var(--nemo-dark)) 
+  color: #FFF;
+  background-color: #348b92;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
-}
-
-.bg-nemo-dark {
-  background-color: rgb(var(--nemo-dark));
-}
-
-.text-nemo {
-  color: rgb(var(--nemo-text));
 }
