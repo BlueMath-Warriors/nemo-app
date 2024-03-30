@@ -5,7 +5,7 @@ const About = () => {
   return (
     <Layout>
       <section
-        className="flex flex-col flex-1 gap-8 items-start pt-[180px] pb-[160px] px-[10%] md:px-[15%] lg:px-[20%] w-full text-2xl nemo-blue-light text-left"
+        className="flex flex-col flex-1 gap-8 items-start pt-[180px] pb-[160px] pl-[8%] pr-[10%] md:pl-[13%] md:pr-[15%] lg:pl-[18%] lg:pr-[20%] w-full text-3xl text-nemo-blue-light text-left"
         style={{ minHeight: "calc(100vh - 56px)" }}
       >
         <p>Career search has always been broken.</p>
