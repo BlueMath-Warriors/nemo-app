@@ -21,7 +21,7 @@ const Search = () => {
 
   return (
     <div
-      className="relative flex items-center justify-center gap-4 text-base leading-7 text-gray-600"
+      className="relative flex items-center justify-start gap-4 text-base leading-7 text-gray-600"
       ref={searchRef}
     >
       <input
