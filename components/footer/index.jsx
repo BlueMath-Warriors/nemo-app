@@ -2,9 +2,9 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <div className="text-center py-4 bg-nemo-dark">
+    <footer className="text-center py-4 bg-nemo-dark w-full">
       Powered by nemo @‌2024
-    </div>
+    </footer>
   );
 };
 
