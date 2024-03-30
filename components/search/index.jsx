@@ -24,7 +24,7 @@ const Search = () => {
       className="flex items-center justify-center gap-4 text-base leading-7 text-gray-600"
       ref={searchRef}
     >
-      <div className="flex w-full">
+      <div className="flex relative w-full">
         <input
           type="text"
           list="career-data-list"
@@ -39,7 +39,7 @@ const Search = () => {
         <div
           className={`${
             showList ? "flex" : "hidden"
-          } flex-col absolute left-0 top-[30px] md:top-[50px] bg-white max-w-[430px] w-4/5 text-xl md:text-3xl text-nemo px-4 py-2`}
+          } flex-col absolute left-0 top-[30px] md:top-[50px] bg-white max-w-[430px] w-full text-xl md:text-3xl text-nemo px-4 py-2`}
         >
           {careers.map((item, index) => (
             <div key={index}>
