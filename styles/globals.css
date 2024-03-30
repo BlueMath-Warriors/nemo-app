@@ -18,10 +18,10 @@ body {
   }
 }
 
-.bg-nemo-dark{
-  background-color: var(--nemo-dark);
+.bg-nemo-dark {
+  background-color: rgb(var(--nemo-dark));
 }
 
-.text-nemo{
-  color: var(--nemo-text);
+.text-nemo {
+  color: rgb(var(--nemo-text));
 }
