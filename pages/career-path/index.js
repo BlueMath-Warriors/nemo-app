@@ -10,7 +10,10 @@ const CareerPath = () => {
 
   return (
     <Layout>
-      <div className="flex flex-col items-center pt-[80px] px-9 h-screen w-full">
+      <section
+        className="flex flex-col items-center pt-[80px] px-9 w-full"
+        style={{ minHeight: "calc(100vh - 56px)" }}
+      >
         <div className="flex flex-col justify-center">
           <h1 className="text-5xl font-semibold leading">
             So you want to be a COO?
@@ -56,7 +59,7 @@ const CareerPath = () => {
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </Layout>
   );
 };
