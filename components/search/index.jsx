@@ -28,7 +28,7 @@ const Search = () => {
         <input
           type="text"
           list="career-data-list"
-          className="h-[30px] md:h-[50px] max-w-[430px] w-full text-xl font-bold md:text-3xl text-nemoDark px-4"
+          className="h-[30px] md:h-[50px] max-w-[430px] w-full text-xl font-bold md:text-3xl text-nemo-dark px-4"
           value={career}
           onChange={(e) => {
             setCareer(e.target.value);
@@ -39,7 +39,7 @@ const Search = () => {
         <div
           className={`${
             showList ? "flex" : "hidden"
-          } flex-col absolute left-0 top-[30px] md:top-[50px] bg-white max-w-[430px] w-full text-xl md:text-3xl text-nemoDark px-4 py-2`}
+          } flex-col absolute left-0 top-[30px] md:top-[50px] bg-white max-w-[430px] w-full text-xl md:text-3xl text-nemo-dark px-4 py-2`}
         >
           {careers.map((item, index) => (
             <div key={index}>
@@ -63,7 +63,7 @@ const Search = () => {
         width={50}
         height={50}
         alt="right-icon"
-        className={"w-[30px] h-[30px]  md:h-[50px] md:w-[50px]"}
+        className={"w-[30px] h-[30px]  md:h-[50px] md:w-[50px] hover:w-[35px] hover:h-[35px]  hover:md:h-[55px] hover:md:w-[55px]"}
         style={{ transform: "scaleX(-1)", margin: "0" }}
       />
     </div>

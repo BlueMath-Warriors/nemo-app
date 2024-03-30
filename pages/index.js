@@ -12,7 +12,7 @@ export default function Home() {
         style={{ minHeight: "calc(100vh - 56px)" }}
       >
         <div className="flex flex-wrap items-center justify-center gap-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-nemoLight text-center">
+          <h2 className="text-4xl md:text-5xl font-bold text-nemo-light text-center">
             So You Want To Be A Unicorn
           </h2>
           <Search />
