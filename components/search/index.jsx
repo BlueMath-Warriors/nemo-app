@@ -5,11 +5,11 @@ const Search = () => {
   const [career, setCareer] = useState("");
   const [careers, setCareers] = useState(["COO", "CEO", "CFO"]);
   return (
-    <div class="flex items-center justify-center gap-4 space-y-6 py-8 text-base leading-7 text-gray-600">
+    <div class="flex items-center justify-center gap-4 text-base leading-7 text-gray-600">
       <input
         type="text"
         list="career-data-list"
-        className="h-[50px] text-3xl text-nemo"
+        className="h-[30px] md:h-[50px] max-w-[430px] w-4/5 text-xl md:text-3xl text-nemo px-4"
         value={career}
         onChange={(e) => {
           setCareer(e.target.value);
@@ -25,6 +25,7 @@ const Search = () => {
         src={"/images/right-search-arrow.svg"}
         width={50}
         height={50}
+        className={"w-[30px] h-[30px]  md:h-[50px] md:w-[50px]"}
         style={{ transform: "scaleX(-1)", margin: "0" }}
       />
     </div>
