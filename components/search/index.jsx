@@ -21,39 +21,41 @@ const Search = () => {
 
   return (
     <div
-      className="relative flex items-center justify-center gap-4 text-base leading-7 text-gray-600"
+      className="flex items-center justify-center gap-4 text-base leading-7 text-gray-600"
       ref={searchRef}
     >
-      <input
-        type="text"
-        list="career-data-list"
-        className="h-[30px] md:h-[50px] max-w-[430px] w-4/5 text-xl md:text-3xl text-nemo px-4"
-        value={career}
-        onChange={(e) => {
-          setCareer(e.target.value);
-        }}
-        onClick={() => setShowList(true)}
-      />
+      <div className="flex relative w-full">
+        <input
+          type="text"
+          list="career-data-list"
+          className="h-[30px] md:h-[50px] max-w-[430px] w-full text-xl md:text-3xl text-nemo px-4"
+          value={career}
+          onChange={(e) => {
+            setCareer(e.target.value);
+          }}
+          onClick={() => setShowList(true)}
+        />
 
-      <div
-        className={`${
-          showList ? "flex" : "hidden"
-        } flex-col absolute left-0 top-[30px] md:top-[50px] bg-white max-w-[430px] w-4/5 text-xl md:text-3xl text-nemo px-4 py-2`}
-      >
-        {careers.map((item, index) => (
-          <div key={index}>
-            <p
-              className="cursor-pointer"
-              onClick={() => {
-                setCareer(item);
-                setShowList(false);
-              }}
-            >
-              {item}
-            </p>
-            {index !== careers.length - 1 && <hr />}
-          </div>
-        ))}
+        <div
+          className={`${
+            showList ? "flex" : "hidden"
+          } flex-col absolute left-0 top-[30px] md:top-[50px] bg-white max-w-[430px] w-full text-xl md:text-3xl text-nemo px-4 py-2`}
+        >
+          {careers.map((item, index) => (
+            <div key={index}>
+              <p
+                className="cursor-pointer"
+                onClick={() => {
+                  setCareer(item);
+                  setShowList(false);
+                }}
+              >
+                {item}
+              </p>
+              {index !== careers.length - 1 && <hr />}
+            </div>
+          ))}
+        </div>
       </div>
 
       <Image
