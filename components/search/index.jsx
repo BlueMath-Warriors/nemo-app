@@ -36,9 +36,6 @@ const Search = () => {
           list="career-data-list"
           className="h-[30px] md:h-[50px] max-w-[430px] w-full text-xl font-bold md:text-3xl text-nemo-dark px-4"
           value={career}
-          onChange={(e) => {
-            setCareer(e.target.value);
-          }}
           onClick={() => setShowList(true)}
         />
 
