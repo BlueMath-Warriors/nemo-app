@@ -19,6 +19,7 @@ module.exports = {
         "nemo-dark": "#348b92",
         "nemo-light": "#FFFFFF",
         "nemo-blue-light": "#e8fffc",
+        "nemo-dark-green": "#0c343d"
       },
     },
   },

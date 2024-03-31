@@ -1,0 +1,17 @@
+.addImage{
+    margin-left: auto;
+    transition: ease 0.4s;
+    cursor: pointer;
+}
+
+
+.crossImage{
+    margin-left: auto;
+    transform: rotate(45deg);
+    transition: ease 0.4s;
+    cursor: pointer;
+}
+
+.card{
+    transition: ease 0.4s;
+}
