@@ -15,7 +15,7 @@ const StepBar = () => {
         <div
           key={index}
           className={`cursor-pointer flex items-center ${
-            activeStep === step ? "text-blue-500" : "text-white-500"
+            activeStep === step ? "text-gray-900" : "text-white-500"
           }`}
           onClick={() => handleClick(step)}
         >

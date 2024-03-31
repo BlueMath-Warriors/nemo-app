@@ -1,72 +1,41 @@
 import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 import Image from "next/image";
 import HorizontalCard from "@/components/horizontal-card";
-import Layout from "../layout";
-import styles from "./styles.module.css"
+import Layout from "../../layout";
+import styles from "./styles.module.css";
+import jsonData from "@/assets/data.json";
 
 const Bio = () => {
-  const [educations, setEducations] = useState([
-    {
-      School: "Stanford University",
-      Degree: "MS",
-      Major: "Computer Science",
-      Start: "1998",
-      End: "1999",
-    },
-    {
-      School: "UCLA",
-      Degree: "BS",
-      Major: "Computer Science",
-      Start: "1994",
-      End: "1998",
-    },
-  ]);
+  const router = useRouter();
+  const [filteredData, setFilteredData] = useState(null);
+  const [educations, setEducations] = useState([]);
   const [skills, setSkills] = useState([1, 2, 3, 4, 5, 6, 7]);
-  const [experiences, setExperiences] = useState([
-    {
-      Company: "Chime",
-      Position: "Co-Founder",
-      Start: "Nov 2012",
-      End: "Present",
-    },
-    {
-      Company: "Comcast Silicon Valley Innovation Center",
-      Position: "CTO & Vice President",
-      Start: "Dec 2010",
-      End: "Nov 2012",
-    },
-    {
-      Company: "Plaxo",
-      Position: "VP Engineering & COO",
-      Start: "Jun 2007",
-      End: "Dec 2010",
-    },
-    {
-      Company: "Plaxo",
-      Position: "Director of Engineering",
-      Start: "Jul 2004",
-      End: "May 2007",
-    },
-    {
-      Company: "Plaxo",
-      Position: "Engineering Manager",
-      Start: "Jul 2003",
-      End: "Jul 2004",
-    },
-    {
-      Company: "Liberate Technologies",
-      Position: "Manager of Server Engineering",
-      Start: "1999",
-      End: "2002",
-    },
-  ]);
+  const [experiences, setExperiences] = useState([]);
+  const [info, setInfo] = useState({});
 
-  const [info, setInfo] = useState({
-    name: "Ryan King",
-    tagline: "Co-Founder Chime",
-    description:
-      "Ryan King is the Co-founder and CTO of Chime, the leader in US challenger banking that helps members avoid fees, save money automatically and achieve financial peace of mind. Prior to Chime, Ryan was the VP of Engineering of Plaxo, an early social networking pioneer that was acquired by Comcast Interactive Media. Ryan earned his M.S. in Computer Science from Stanford University and a B.S. in Computer Science from UCLA.",
-  });
+  useEffect(() => {
+    if (router.query.name) {
+      const filtered = jsonData.filter(
+        (entry) => entry.Name === router.query.name
+      );
+      if (filtered.length > 0) {
+        const data = filtered[0];
+        setFilteredData(data);
+        setEducations([...data.Education]);
+        setExperiences([...data.Experiences]);
+        setInfo({
+          name: data.Name || "",
+          tagline: (data.Job || "") + " " + (data.Company || ""),
+          description: data?.Description
+            ? data?.Description
+            : data?.Location,
+          profileImg: data?.profile_img || "",
+        });
+      }
+    }
+  }, [router.query.name]);
+
 
   return (
     <Layout>
@@ -102,10 +71,12 @@ const Bio = () => {
               </div>
             </div>
             <Image
-              src={"/images/profile-pic.jpg"}
+              src={info.profileImg}
               width={350}
               height={350}
               className="mb:order-2 order-1 rounded-full md:w-[240px] md:h-[240px] lg:w-[280px] lg:h-[280px] xl:w-[350px] xl:h-[350px] mb:w-[300px] mb:h-[300px]"
+              priority
+              alt="profile Image"
             />
           </div>
           <div className="flex flex-col items-start justify-start right-section w-full md:w-1/2">
@@ -119,23 +90,40 @@ const Bio = () => {
         </div>
         {/* Experience Detail */}
         <div className="relative w-full flex flex-col items-center justify-center border-t-8 border-black px-6 lg:px-12 xl:px-16 pt-8 pb-28 bg-[#265073]">
-          <h2 className={"relative drop-shadow-2xl text-nemo-dark bg-nemo-light px-8 py-4 rounded-lg text-5xl top-[-75px] border-2 border-black " + styles.customShadow}>
+          <h2
+            className={
+              "relative drop-shadow-2xl text-nemo-dark bg-nemo-light px-8 py-4 rounded-lg text-5xl top-[-75px] border-2 border-black " +
+              styles.customShadow
+            }
+          >
             Experiences
           </h2>
 
-          {experiences.map((experience, index) => (
-            <HorizontalCard experience={experience} dark={index === 0} />
+          {experiences?.map((experience, index) => (
+            <HorizontalCard
+              experience={experience}
+              dark={index === 0}
+              key={index + "_experiences"}
+            />
           ))}
         </div>
 
         {/* Education Details */}
         <div className="relative w-full flex flex-col items-center justify-center border-t-8 border-black px-6 lg:px-12 xl:px-16 py-8 bg-[#7468b6]">
-          <h2 className={"relative text-nemo-dark bg-nemo-light px-8 py-4 rounded-lg text-5xl top-[-75px]  border-2 border-black "  + styles.customShadow}>
+          <h2
+            className={
+              "relative text-nemo-dark bg-nemo-light px-8 py-4 rounded-lg text-5xl top-[-75px]  border-2 border-black " +
+              styles.customShadow
+            }
+          >
             Education
           </h2>
           <div className="flex flex-col w-full items-center gap-2">
-            {educations.map((education, index) => (
-              <div className="flex flex-wrap flex-row items-center justify-between rounded-lg w-full bg-nemo-light px-6 py-3 max-w-[1200px]">
+            {educations?.map((education, index) => (
+              <div
+                className="flex flex-wrap flex-row items-center justify-between rounded-lg w-full bg-nemo-light px-6 py-3 max-w-[1200px]"
+                key={index + "_educations"}
+              >
                 <div>
                   <p className="text-nemo-dark text-3xl font-bold">
                     {education.School}
@@ -147,7 +135,11 @@ const Bio = () => {
                     <span className="text-xl">{education.Major}</span>
                   </p>
                   <p className="text-nemo-dark text-lg font-bold">
-                    {education.Start} - {education.End}
+                    <p className="text-nemo-dark text-lg font-bold">
+                      {(education.Start || education.End) !== "NA"
+                        ? `${education.Start} - ${education.End}`
+                        : ""}
+                    </p>
                   </p>
                 </div>
               </div>
