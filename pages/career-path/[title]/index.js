@@ -1,22 +1,37 @@
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import Layout from "../layout";
+import Link from "next/link";
+import Layout from "../../layout";
 import StepBar from "@/components/steps/index";
 import Graph from "@/components/graph/index";
+import jsonData from "@/assets/data.json";
 
 const CareerPath = () => {
   const router = useRouter();
+  const [queryData, setQueryData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
+
+  useEffect(() => {
+    if (router.query.title) {
+      setQueryData(router.query.title);
+      const filtered = jsonData.filter(
+        (entry) => entry.Job.toLowerCase() === router.query.title.toLowerCase()
+      );
+      setFilteredData(filtered);
+    }
+  }, [router.query.title]);
 
   const journeys = ["Joe CFO", "Schlomo CFO", "Miguel CFO"];
 
   return (
     <Layout>
       <section
-        className="flex flex-col items-center pt-[80px] px-9 w-full"
+        className="flex flex-col items-center pt-[120px] px-9 w-full"
         style={{ minHeight: "calc(100vh - 56px)" }}
       >
         <div className="flex flex-col justify-center">
           <h1 className="text-5xl font-semibold leading">
-            So you want to be a COO?
+            {`So you want to be a ${queryData.toString().toUpperCase()}?`}
           </h1>
           <p className="text-xl font-normal mt-3 text-center text-gray-200">
             We studied all of their careers so you don't have to.
@@ -47,11 +62,11 @@ const CareerPath = () => {
                   Spin through their journeys!
                 </h3>
                 <ul className="list-disc pl-5 text-gray-300 text-xl">
-                  {journeys.map((data, index) => (
+                  {filteredData.map((data, index) => (
                     <li className="mt-2 ml-4">
-                      <a href="#" className="underline">
-                        {data}
-                      </a>
+                      <Link href="#" className="underline">
+                        {data.Name}
+                      </Link>
                     </li>
                   ))}
                 </ul>

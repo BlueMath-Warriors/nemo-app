@@ -1,7 +1,9 @@
+import { useRouter } from "next/router";
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
 const Search = () => {
+  const router = useRouter();
   const [career, setCareer] = useState("");
   const [careers, setCareers] = useState(["COO", "CEO", "CFO"]);
   const [showList, setShowList] = useState(false);
@@ -18,6 +20,10 @@ const Search = () => {
       document.removeEventListener("click", handleClickOutside);
     };
   }, []);
+
+  const handleCareerSearch = () => {
+    router.push(`career-path/${career}`);
+  };
 
   return (
     <div
@@ -63,8 +69,11 @@ const Search = () => {
         width={50}
         height={50}
         alt="right-icon"
-        className={"w-[30px] h-[30px]  md:h-[50px] md:w-[50px] hover:w-[35px] hover:h-[35px]  hover:md:h-[55px] hover:md:w-[55px]"}
+        className={
+          "w-[30px] h-[30px]  md:h-[50px] md:w-[50px] hover:w-[35px] hover:h-[35px]  hover:md:h-[55px] hover:md:w-[55px] cursor-pointer"
+        }
         style={{ transform: "scaleX(-1)", margin: "0" }}
+        onClick={handleCareerSearch}
       />
     </div>
   );
