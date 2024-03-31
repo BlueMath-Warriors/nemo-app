@@ -25,6 +25,10 @@ const Search = () => {
     router.push(`career-path/${career}`);
   };
 
+  const handleValueChange = () => {
+    console.log("")
+  }
+
   return (
     <div
       className="flex items-center justify-center gap-4 text-base leading-7 text-gray-600"
@@ -36,6 +40,7 @@ const Search = () => {
           list="career-data-list"
           className="h-[30px] md:h-[50px] max-w-[430px] w-full text-xl font-bold md:text-3xl text-nemo-dark px-4"
           value={career}
+          onChange={handleValueChange}
           onClick={() => setShowList(true)}
         />
 

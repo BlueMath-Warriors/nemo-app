@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import Link from "next/link";
 import Layout from "../../layout";
 import StepBar from "@/components/steps/index";
 import Graph from "@/components/graph/index";
@@ -21,7 +20,10 @@ const CareerPath = () => {
     }
   }, [router.query.title]);
 
-  const journeys = ["Joe CFO", "Schlomo CFO", "Miguel CFO"];
+  const handleUserBioRoute = (name) => {
+    const encodedName = encodeURIComponent(name);
+    router.push(`/bio/${encodedName}`);
+  };
 
   return (
     <Layout>
@@ -63,10 +65,10 @@ const CareerPath = () => {
                 </h3>
                 <ul className="list-disc pl-5 text-gray-300 text-xl">
                   {filteredData.map((data, index) => (
-                    <li className="mt-2 ml-4">
-                      <Link href="#" className="underline">
+                    <li className="mt-2 ml-4" key={index + "_titles"}>
+                      <p onClick={() => handleUserBioRoute(data.Name)} className="cursor-pointer">
                         {data.Name}
-                      </Link>
+                      </p>
                     </li>
                   ))}
                 </ul>

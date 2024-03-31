@@ -9,7 +9,7 @@ const Navbar = () => {
         href="/"
         className="flex gap-4 items-center justify-center cursor-pointer"
       >
-        <Image src="/images/nemo-logo.jpg" width={20} height={60} />
+        <Image src="/images/nemo-logo.jpg" width={20} height={60} alt="nemo-logo" />
         <p className="text-white font-bold text-2xl md:text-4xl">NEMO</p>
       </Link>
       <ul className="flex space-x-8">
