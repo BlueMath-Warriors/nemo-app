@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import HorizontalCard from "./horizontal-card";
+import HorizontalCard from "@/components/horizontal-card";
 import Layout from "../layout";
 import styles from "./styles.module.css"
 
