@@ -35,7 +35,7 @@ const Bio = () => {
   ]);
   const [experiences, setExperiences] = useState([]);
   const [info, setInfo] = useState({});
-
+  const dummyDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum";
   useEffect(() => {
     if (router.query.name) {
       const filtered = jsonData.filter(
@@ -50,7 +50,7 @@ const Bio = () => {
           name: data.Name || "",
           tagline: (data.Job ? data.Job + ", " : "") + (data.Company || ""),
           location: data?.Location || "",
-          description: data?.Description || "",
+          description: data?.Description || dummyDescription,
           profileImg: data?.profile_img || "",
         });
       }
@@ -61,26 +61,26 @@ const Bio = () => {
   return (
     <Layout>
       <section className="w-full flex flex-col justify-center md:justify-start items-center">
-        <div className="flex py-6 mb:py-8 lg:py-10 xl:py-12 flex-col md:flex-row gap-6 lg:gap-12 xl:gap-16 items-center justify-center bg-nemo-dark max-w-[1200px] mx-6 lg:mx-12 xl:mx-16 mb-8">
-          <div className="flex flex-col mb:flex-row items-center justify-center md:justify-end lg:gap-2 xl:gap-6 left-section">
+        <div className="flex py-4 mb:py-6 lg:py-8 flex-col md:flex-row gap-6 lg:gap-12 xl:gap-16 items-start justify-center md:justify-start bg-nemo-dark max-w-[1200px] md:w-full px-6 lg:px-12 xl:px-16 mb-8">
+          <div className="flex lg:gap-2 xl:gap-6 left-section shrink-0">
 
             <Image
               src={info.profileImg}
-              width={350}
-              height={350}
-              className="mb:order-2 order-1 rounded-full md:w-[240px] md:h-[240px] lg:w-[280px] lg:h-[280px] xl:w-[350px] xl:h-[350px] mb:w-[300px] mb:h-[300px]"
+              width={260}
+              height={260}
+              className="mb:order-2 order-1 rounded-full md:w-[220px] md:h-[220px] lg:w-[240px] lg:h-[240px] xl:w-[300px] xl:h-[300px] mb:w-[260px] mb:h-[260px]"
               priority
               alt="profile Image"
             />
           </div>
-          <div className="flex flex-col items-start justify-start right-section w-full md:w-1/2">
+          <div className="flex flex-col items-start justify-start right-section w-full md:pt-4">
             <div className="flex gap-6 mb:gap-4">
-              <h1 className="name text-6xl font-bold mb-3">{info.name}</h1>
+              <h1 className="name text-4xl font-bold mb-2">{info.name}</h1>
             </div>
-            <p className="text-3xl mb-2">{info.tagline}</p>
-            <p className="text-xl tracking-wide mb-3">{info.location}</p>
-            <hr className="w-36 mb-3 border-t-4" />
-            <p className="text-xl tracking-wide">{info.description}</p>
+            <p className="text-2xl mb-1/2">{info.tagline}</p>
+            <p className="text-lg tracking-wide mb-1">{info.location}</p>
+            <hr className="w-36 mb-2 border-t-4" />
+            <p className="text-lg tracking-wide">{info.description}</p>
           </div>
         </div>
         {/* Experience Detail */}
