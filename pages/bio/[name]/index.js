@@ -5,6 +5,7 @@ import HorizontalCard from "@/components/horizontal-card";
 import Layout from "../../layout";
 import styles from "./styles.module.css";
 import jsonData from "@/assets/data.json";
+import HorizontalTimeline from "@/components/horizontal-timeline";
 
 const Bio = () => {
   const router = useRouter();
@@ -57,13 +58,11 @@ const Bio = () => {
     }
   }, [router.query.name]);
 
-
   return (
     <Layout>
       <section className="w-full flex flex-col justify-center md:justify-start items-center">
         <div className="flex py-4 mb:py-6 lg:py-8 flex-col md:flex-row gap-6 lg:gap-12 xl:gap-16 items-start justify-center md:justify-start bg-nemo-dark max-w-[1200px] md:w-full px-6 lg:px-12 xl:px-16 mb-8">
           <div className="flex lg:gap-2 xl:gap-6 left-section shrink-0">
-
             <Image
               src={info.profileImg}
               width={260}
@@ -83,7 +82,7 @@ const Bio = () => {
             <p className="text-lg tracking-wide">{info.description}</p>
           </div>
         </div>
-        {/* Experience Detail */}
+        {/* Experience Detail
         <div className="relative w-full flex flex-col items-center justify-center border-t-8 border-black px-6 lg:px-12 xl:px-16 pt-8 pb-28 bg-[#265073]">
           <h2
             className={
@@ -101,6 +100,22 @@ const Bio = () => {
               key={index + "_experiences"}
             />
           ))}
+        </div> */}
+
+        {/* Career TimeLine */}
+        <div className="relative w-full flex flex-col items-center justify-center border-t-8 border-black px-6 lg:px-12 xl:px-16  pt-8 pb-28 bg-[#7468b6]">
+        <h2
+            className={
+              "relative drop-shadow-2xl text-nemo-dark bg-nemo-light px-8 py-4 rounded-lg text-5xl top-[-75px] border-2 border-black " +
+              styles.customShadow
+            }
+          >
+            Careers
+          </h2>
+            <div className="flex mt-56 mb-36 w-full ">
+            <HorizontalTimeline careers={experiences}/>
+            </div>
+
         </div>
 
         {/* Education Details */}
