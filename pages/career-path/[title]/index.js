@@ -40,23 +40,23 @@ const CareerPath = () => {
     if (stepActive === 0) {
       setData1(EduUnderGradGraph);
       setData2(EduHighSchoolGraph);
-      setLabel1("% vs. Undergrad Institution");
-      setLabel2("% vs. Highest Schooling Level");
+      setLabel1("Undergrad Institution");
+      setLabel2("Highest Schooling Level");
     } else if (stepActive === 1) {
       setData1(FirstJobFunction);
       setData2(FirstJobPromotion);
-      setLabel1("% vs. Function");
-      setLabel2("% vs. Promotion");
+      setLabel1("Function");
+      setLabel2("Promotion");
     } else if (stepActive === 2) {
       setData1(MidCareerPreUnicorn);
       setData2(MidCareerFunction);
-      setLabel1("% vs. # of Jobs Pre-Unicorn");
-      setLabel2("% vs. Most Common Function");
+      setLabel1("# of Jobs Pre-Unicorn");
+      setLabel2("Most Common Function");
     } else {
       setData1(UnicornRoleCompanyStageAtJoin);
       setData2(UnicornRoleLevelWhenJoining);
-      setLabel1("% vs. Company Stage At Join");
-      setLabel2("% vs. Level When Joining");
+      setLabel1("Company Stage At Join");
+      setLabel2("Level When Joining");
     }
   }, [stepActive]);
 
