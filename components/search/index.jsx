@@ -5,7 +5,7 @@ import Image from "next/image";
 const Search = () => {
   const router = useRouter();
   const [career, setCareer] = useState("");
-  const [careers, setCareers] = useState(["COO", "CEO", "CFO"]);
+  const [careers, setCareers] = useState(["COO", "CEO", "CFO", "CPO", "CTO", "CRO"]);
   const [showList, setShowList] = useState(false);
   const searchRef = useRef(null);
 

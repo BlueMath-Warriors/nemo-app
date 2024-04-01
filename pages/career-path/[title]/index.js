@@ -4,6 +4,7 @@ import Layout from "../../layout";
 import StepBar from "@/components/steps/index";
 import Graph from "@/components/graph/index";
 import jsonData from "@/assets/data.json";
+import PersonProfile from "@/components/person-profile/index";
 
 const CareerPath = () => {
   const router = useRouter();
@@ -28,27 +29,29 @@ const CareerPath = () => {
   return (
     <Layout>
       <section
-        className="flex flex-col items-center pt-[120px] px-9 w-full"
+        className="pt-[120px] px-8 w-full"
         style={{ minHeight: "calc(100vh - 56px)" }}
       >
-        <div className="flex flex-col justify-center">
-          <h1 className="text-5xl font-semibold leading">
-            {`So you want to be a ${queryData.toString().toUpperCase()}?`}
-          </h1>
-          <p className="text-xl font-normal mt-3 text-center text-gray-200">
-            We studied all of their careers so you don't have to.
-          </p>
-        </div>
-        <div className="flex flex-col justify-center items-center w-full mt-8 px-11">
-          <div className="w-[80%]">
-            <h3 className="text-3xl font-medium text-center">
-              Here's how they do it
-            </h3>
-            <StepBar />
-            <Graph />
-            <div className="flex my-8">
-              <div className="w-[70%]">
-                <h3 className="text-xl font-medium">Main Takeaways</h3>
+        <div className="flex w-full px-6">
+          {/* Left Section */}
+          <div className="flex flex-col justify-start left-20 w-[20%]">
+            <div className="sticky top-20">
+              <h1 className="text-3xl font-semibold leading">
+                {`So you want to be a ${queryData.toString().toUpperCase()}?`}
+              </h1>
+              <p className="text-xl font-normal mt-3 text-gray-200">
+                We studied all of their careers so you don't have to.
+              </p>
+            </div>
+          </div>
+
+          {/* Right Section */}
+          <div className="flex flex-col justify-center items-center w-[80%] px-6">
+            <div className="w-[100%]">
+              <div className="flex flex-col items-center">
+                <h3 className="text-3xl font-medium text-center">
+                  Main Takeaways
+                </h3>
                 <p className="text-xl font-normal w-[90%] text-gray-200 text-justify mt-2">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Sequi, adipisci! Provident sunt atque eveniet praesentium
@@ -59,19 +62,27 @@ const CareerPath = () => {
                   molestias ad sapiente? Corrupti, in incidunt?
                 </p>
               </div>
-              <div className="w-[30%] ml-6 mt-[34px]">
-                <h3 className="text-xl font-medium mb-2">
+              <div className="mt-8">
+                <h3 className="text-3xl font-medium text-center">
+                  Here's how they do it
+                </h3>
+                <StepBar />
+                <Graph />
+              </div>
+              <div className="flex flex-col mt-8 mb-12">
+                <h3 className="text-3xl font-medium mb-6 text-center">
                   Spin through their journeys!
                 </h3>
-                <ul className="list-disc pl-5 text-gray-300 text-xl">
+                {/* <ul className="list-disc pl-5 text-gray-300 text-xl"> */}
+                <div className="grid grid-cols-6 gap-2">
                   {filteredData.map((data, index) => (
-                    <li className="mt-2 ml-4" key={index + "_titles"}>
-                      <p onClick={() => handleUserBioRoute(data.Name)} className="cursor-pointer">
-                        {data.Name}
-                      </p>
-                    </li>
+                    <PersonProfile
+                      key={index + "_profile"}
+                      data={data}
+                      handleUserBioRoute={handleUserBioRoute}
+                    />
                   ))}
-                </ul>
+                </div>
               </div>
             </div>
           </div>
