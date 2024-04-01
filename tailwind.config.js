@@ -12,14 +12,15 @@ module.exports = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
-      screens:{
-        "mb": "500px"
+      screens: {
+        mb: "500px",
       },
       colors: {
         "nemo-dark": "#348b92",
         "nemo-light": "#FFFFFF",
         "nemo-blue-light": "#e8fffc",
-        "nemo-dark-green": "#0c343d"
+        "nemo-dark-green": "#0c343d",
+        "nemo-dark-graph": "#24767c",
       },
     },
   },

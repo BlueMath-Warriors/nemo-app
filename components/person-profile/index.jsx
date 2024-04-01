@@ -4,7 +4,7 @@ import Image from "next/image";
 const PersonProfile = ({ data, handleUserBioRoute }) => {
   return (
     <div
-      className="flex flex-col justify-center items-center cursor-pointer w-[150px] mb-4 relative"
+      className="flex flex-col justify-center items-center cursor-pointer w-[200px] mb-4 relative"
       onClick={() => handleUserBioRoute(data.Name)}
     >
       <div className="relative">
@@ -25,7 +25,7 @@ const PersonProfile = ({ data, handleUserBioRoute }) => {
           />
         </div>
       </div>
-      <p className="text-gray-100 text-xl underline mt-1">{data.Name}</p>
+      <p className="text-gray-100 text-base text-center mt-1">{data.Name}</p>
     </div>
   );
 };
