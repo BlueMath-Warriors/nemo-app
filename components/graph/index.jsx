@@ -2,6 +2,19 @@ import { chart as chartJS } from "chart.js/auto";
 import { Bar, Pie } from "react-chartjs-2";
 
 const Graph = ({ data1, label1, data2, label2 }) => {
+  const options = {
+    plugins: {
+      legend: {
+        labels: {
+          color: "white",
+          font: {
+            size: 12,
+          },
+        },
+      },
+    },
+  };
+
   return (
     <>
       <div className="mt-4 flex justify-center items-center">
@@ -16,11 +29,11 @@ const Graph = ({ data1, label1, data2, label2 }) => {
         </p>
         <div className="w-[33%] h-[360px] rounded-lg bg-nemo-dark-graph mt-4 p-6 flex flex-col justify-center items-center text-black mr-4 drop-shadow-xl">
           <h2 className="text-white">{label1}</h2>
-          <Pie data={data1} />
+          <Pie data={data1} options={options} />
         </div>
         <div className="w-[33%] h-[360px] rounded-lg bg-nemo-dark-graph mt-4 p-6 flex flex-col justify-center items-center text-black drop-shadow-xl">
           <h2 className="text-white">{label2}</h2>
-          <Pie data={data2} />
+          <Pie data={data2} options={options} />
         </div>
       </div>
     </>
