@@ -170,29 +170,29 @@ const Bio = () => {
         </div>
 
         {/* Skills */}
-        <div className="relative w-full flex flex-col items-center justify-center border-t-8 border-black px-6 lg:px-12 xl:px-16 pt-8 pb-28 bg-[#124076]">
-          <h2
-            className={
-              "relative text-nemo-dark bg-nemo-light px-8 py-4 rounded-lg text-5xl top-[-75px]  border-2 border-black " +
-              styles.customShadow
-            }
-          >
-            Skills
-          </h2>
-          <div className="flex flex-row flex-wrap w-full items-center justify-center gap-2 max-w-[1200px]">
-            {skills?.map((skill, index) => (
-              <div
-                key={index + "_skills"}
-                className="bg-nemo-light flex flex-col flex-row items-center justify-center rounded-lg w-1/4 bg-nemo-light w-full max-w-1/3 h-[80px]">
-                <p className="text-nemo-dark text-xl font-bold">{skill.title}</p>
-                <p className="text-nemo-dark text-xl "> Endorsments: <span className="text-2xl font-bold">{skill.endorsements}</span></p>
+        {skills.length > 0 && (
+          <div className="relative w-full flex flex-col items-center justify-center border-t-8 border-black px-6 lg:px-12 xl:px-16 pt-8 pb-28 bg-[#124076]">
+            <h2
+              className={
+                "relative text-nemo-dark bg-nemo-light px-8 py-4 rounded-lg text-5xl top-[-75px]  border-2 border-black " +
+                styles.customShadow
+              }
+            >
+              Skills
+            </h2>
+            <div className="flex flex-row flex-wrap w-full items-center justify-center gap-2 max-w-[1200px]">
+              {skills?.map((skill, index) => (
+                <div
+                  key={index + "_skills"}
+                  className="bg-nemo-light flex flex-col flex-row items-center justify-center rounded-lg w-1/4 bg-nemo-light max-w-1/3 h-[80px]">
+                  <p className="text-nemo-dark text-xl font-bold">{skill.title}</p>
+                  <p className="text-nemo-dark text-xl "> Endorsments: <span className="text-2xl font-bold">{skill.endorsements}</span></p>
 
-              </div>
-            ))}
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-
-
+        )}
       </section>
     </Layout>
   );
