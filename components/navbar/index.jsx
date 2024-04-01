@@ -9,14 +9,14 @@ const Navbar = () => {
         href="/"
         className="flex gap-4 items-center justify-center cursor-pointer"
       >
-        <Image src="/images/nemo-logo.jpg" width={18} height={55} alt="nemo-logo" />
-        <p className="text-white font-bold text-xl md:text-4xl">NEMO</p>
+        <Image src="/images/nemo-logo.jpg" width={15} height={50} alt="nemo-logo" />
+        <p className="text-white font-bold text-xl md:text-2xl">NEMO</p>
       </Link>
       <ul className="flex space-x-8">
         <li>
           <Link
             href="/about"
-            className="text-nemo-light text-xl md:text-2xl hover:text-gray-300"
+            className="text-nemo-light text-lg md:text-xl hover:text-gray-300"
           >
             About
           </Link>
@@ -24,7 +24,7 @@ const Navbar = () => {
         <li>
           <a
             href="#"
-            className="text-nemo-light text-xl md:text-2xl hover:text-gray-300"
+            className="text-nemo-light text-lg md:text-xl hover:text-gray-300"
           >
             Data
           </a>
