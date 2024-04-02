@@ -76,10 +76,12 @@ const CareerPath = () => {
           <div className="flex flex-col justify-start left-10 w-[20%] border-r-4 pt-[40px]">
             <div className="sticky top-10 mr-4">
               <h1 className="text-3xl font-semibold leading">
-                {`So you want to be a ${queryData.toString().toUpperCase()}?`}
+                {`How to become a ${queryData
+                  .toString()
+                  .toUpperCase()} of a Unicorn.`}
               </h1>
               <p className="text-xl font-normal mt-3 text-gray-200">
-                We studied all of their careers so you don't have to.
+                We studied dozens of their careers to map their path to the top.
               </p>
             </div>
           </div>
@@ -87,21 +89,7 @@ const CareerPath = () => {
           {/* Right Section */}
           <div className="flex flex-col justify-center items-center w-[80%] px-6 pt-[40px]">
             <div className="w-[100%]">
-              <div className="flex flex-col items-center">
-                <h3 className="text-3xl font-medium text-center">
-                  Main Takeaways
-                </h3>
-                <p className="text-xl font-normal w-[90%] text-gray-200 text-justify mt-2">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Sequi, adipisci! Provident sunt atque eveniet praesentium
-                  perspiciatis dolorum fugit omnis odit. In soluta minima illum
-                  ipsam eius est voluptatum accusantium repellendus sed
-                  provident, illo voluptate inventore neque debitis perferendis
-                  veniam temporibus dignissimos, cum blanditiis explicabo
-                  molestias ad sapiente? Corrupti, in incidunt?
-                </p>
-              </div>
-              <div className="mt-8">
+              <div>
                 <h3 className="text-3xl font-medium text-center">
                   Here's how they do it
                 </h3>
@@ -113,9 +101,9 @@ const CareerPath = () => {
                   label2={label2}
                 />
               </div>
-              <div className="flex flex-col mt-8 mb-12">
+              <div className="flex flex-col mt-12 mb-12">
                 <h3 className="text-3xl font-medium mb-6 text-center">
-                  Spin through their journeys!
+                  Study How They Got Here
                 </h3>
                 <div className="grid grid-cols-6 gap-2 items-center">
                   {filteredData.map((data, index) => (
