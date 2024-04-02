@@ -72,7 +72,7 @@ const Search = () => {
         height={50}
         alt="right-icon"
         className={
-          "w-[30px] h-[30px]  md:h-[50px] md:w-[50px] hover:w-[35px] hover:h-[35px]  hover:md:h-[55px] hover:md:w-[55px] cursor-pointer bg-nemo-dark border-2 border-nemo-dark rounded-lg"
+          "w-[30px] h-[30px]  md:h-[50px] md:w-[50px] cursor-pointer bg-nemo-dark border-2 border-nemo-dark rounded-lg"
         }
         style={{ transform: "scaleX(-1)", margin: "0" }}
         onClick={handleCareerSearch}
