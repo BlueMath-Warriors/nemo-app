@@ -110,7 +110,7 @@ const Bio = () => {
               styles.customShadow
             }
           >
-            Careers
+            Career
           </h2>
             <div className="flex mt-56 mb-36 w-full">
             <HorizontalTimeline careers={experiences.slice(0, 6)}/>
@@ -158,7 +158,7 @@ const Bio = () => {
         </div>
 
         {/* Skills */}
-        {skills.length > 0 && (
+        {/* {skills.length > 0 && (
           <div className="relative w-full flex flex-col items-center justify-center border-t-8 border-black px-6 lg:px-12 xl:px-16 pt-8 pb-28 bg-[#124076]">
             <h2
               className={
@@ -180,7 +180,7 @@ const Bio = () => {
               ))}
             </div>
           </div>
-        )}
+        )} */}
       </section>
     </Layout>
   );
