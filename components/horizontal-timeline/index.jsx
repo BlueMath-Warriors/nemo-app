@@ -1,4 +1,12 @@
 import { useEffect, useState } from "react";
+import { Poppins } from "next/font/google";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal"],
+  display: "swap",
+});
 
 const TimelinePartition = ({ career, index }) => {
   const backgroundVariants = {
@@ -18,36 +26,33 @@ const TimelinePartition = ({ career, index }) => {
     4: "group-hover:text-[#61A3BA]",
     5: "group-hover:text-[#A3423C]",
   };
+
   return (
-    <div key={index} className="group w-full relative cursor-pointer">
-      {/* Circle on timeline */}
+    <div key={index} className={"group w-full rounded relative cursor-pointer " + poppins.className} >
       <div
-        className={` relative w-8 h-8 rounded-full top-[-20px] bg-gray-200 ${backgroundVariants[index]}`}
+        className={`timeline-circle relative w-8 h-8 rounded-full ${index % 2 === 0 ? "top-[-100px]" : "top-[-20px]"} bg-[#B5C0D0] ${backgroundVariants[index]}`}
       ></div>
-      {/* The small circle on left of company name */}
       <div
-        className={`absolute w-6 h-6 rounded-full left-[4px] ${
-          index % 2 === 0 ? "bottom-[335px]" : "top-[170px]"
-        } bg-gray-200 ${backgroundVariants[index]}`}
+        className={`heading-circle absolute w-6 h-6 rounded-full left-[4px] ${
+          index % 2 === 0 ? "bottom-[232px]" : "top-[144px]"
+        } bg-[#B5C0D0] ${backgroundVariants[index]}`}
       ></div>
-      {/* The vertical Line on Timeline */}
       <div
-        className={`relative flex flex-col items-start justify-start h-32 w-full`}
+        className={`career relative flex flex-col items-start justify-start h-32 w-full ${
+          index % 2 === 0 ? "mt-[-295px] " : "mt-[10px]"
+        }`}
       >
         <div
-          className={`absolute h-36 w-2 bg-white rounded left-[11.5px] ${
+          className={`vertical-line absolute h-36 w-2 bg-[#B5C0D0] rounded ${index % 2 === 0 ? "mt-[23px] left-[12px]" : "mt-[-35px] left-[11px]" } ${
             backgroundVariants[index]
-          } ${index % 2 === 0 ? "bottom-[185px]" : "top-[-12px]"}`}
+          } 
+          `}
         ></div>
-        <div
-          className={`flex relative flex-col left-[35px] ${
-            index % 2 === 0 ? "bottom-[237px] " : "top-[133px]"
-          }`}
-        >
-          <p className={`text-2xl font-bold ${textVariants[index]}`}>
+        <div className={`career-content flex relative flex-col left-[35px] group-hover:scale-110 group-hover:translate-x-6 ${index % 2 === 0 ? "" : "mt-[15px]"}`}>
+          <p className={`text-3xl font-bold ${textVariants[index]}`}>
             {career.Company}
           </p>
-          <p className={`text-xl`}>{career.Position}</p>
+          <p className={`text-xl font-bold`}>{career.Position}</p>
           <p
             className={`text-xl italic`}
           >{`${career.Start} - ${career.End}`}</p>
@@ -59,7 +64,7 @@ const TimelinePartition = ({ career, index }) => {
 
 const HorizontalTimeline = ({ careers }) => {
   return (
-    <div className="flex w-full justify-between items-center border-t-8 ">
+    <div className="flex border-nemo-light-blue rounded-l-xl w-full justify-between items-center border-t-8 ">
       {careers.map((career, index) => (
         <TimelinePartition career={career} index={index} />
       ))}

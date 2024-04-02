@@ -103,7 +103,7 @@ const Bio = () => {
         </div> */}
 
         {/* Career TimeLine */}
-        <div className="relative w-full flex flex-col items-center justify-center border-t-8 border-black px-6 lg:px-12 xl:px-16  pt-8 pb-28 bg-[#7468b6]">
+        <div className="relative w-full flex flex-col items-center justify-center border-t-8 border-black px-6 lg:px-12 xl:px-16  pt-8 pb-28 bg-[#424769]">
         <h2
             className={
               "relative drop-shadow-2xl text-nemo-dark bg-nemo-light px-8 py-4 rounded-lg text-5xl top-[-75px] border-2 border-black " +
@@ -112,8 +112,8 @@ const Bio = () => {
           >
             Careers
           </h2>
-            <div className="flex mt-56 mb-36 w-full ">
-            <HorizontalTimeline careers={experiences}/>
+            <div className="flex mt-56 mb-36 w-full">
+            <HorizontalTimeline careers={experiences.slice(0, 6)}/>
             </div>
 
         </div>
