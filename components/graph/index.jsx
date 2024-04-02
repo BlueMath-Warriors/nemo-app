@@ -1,5 +1,9 @@
 import { chart as chartJS } from "chart.js/auto";
 import { Bar, Pie } from "react-chartjs-2";
+import { Chart } from "chart.js";
+import ChartDataLabels from "chartjs-plugin-datalabels";
+
+Chart.register(ChartDataLabels);
 
 const Graph = ({ data1, label1, data2, label2 }) => {
   const options = {
@@ -7,6 +11,19 @@ const Graph = ({ data1, label1, data2, label2 }) => {
       tooltip: {
         enabled: false, // Disable tooltips
       },
+      datalabels: {
+        formatter: (value, ctx) => {
+          let sum = ctx.chart.data.datasets[0].data.reduce((a, b) => a + b, 0);
+          let percentage = ((value * 100) / sum).toFixed(0) + "%"; // Round off the percentage
+
+          return percentage;
+        },
+        color: "white",
+        font: {
+          weight: "bold",
+        },
+      },
+
       legend: {
         position: "bottom",
         labels: {

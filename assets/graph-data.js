@@ -39,7 +39,7 @@ export const FirstJobFunction = {
   datasets: [
     {
       label: "Function",
-      data: [0.25, 0.18, 0.54, 0, 0.03],
+      data: [0.25, 0.18, 0.54, 0.03],
       backgroundColor: [
         "rgba(255, 99, 132, 0.6)",
         "rgba(54, 162, 235, 0.6)",
