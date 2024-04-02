@@ -47,7 +47,7 @@ const Search = () => {
         <div
           className={`${
             showList ? "flex" : "hidden"
-          } flex-col absolute left-0 top-[30px] md:top-[50px] bg-nemo-dark max-w-[430px] w-full text-xl md:text-3xl text-nemo-light px-4 py-2 border border-nemo-light`}
+          } flex-col absolute left-0 top-[30px] md:top-[50px] bg-nemo-dark max-w-[430px] w-full text-xl md:text-3xl text-nemo-light px-4 py-2 border border-nemo-light z-20`}
         >
           {careers.map((item, index) => (
             <div key={index}>
