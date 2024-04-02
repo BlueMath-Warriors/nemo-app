@@ -140,12 +140,15 @@ const Bio = () => {
                 </div>
                 <div className="flex flex-col items-end">
                   <p className="text-nemo-dark text-2xl font-bold">
-                    {education.Degree},{" "}
+                    {education.Degree ? education.Degree + "," : ""}{" "}
                     <span className="text-xl">{education.Major}</span>
                   </p>
                   <p className="text-nemo-dark text-lg font-bold">
                     <p className="text-nemo-dark text-lg font-bold">
-                      {(education.Start || education.End) !== "NA"
+                      {education.Start !== "NA" &&
+                      education.End !== "NA" &&
+                      education.Start !== null &&
+                      education.End !== null
                         ? `${education.Start} - ${education.End}`
                         : ""}
                     </p>

@@ -55,7 +55,7 @@ const TimelinePartition = ({ career, index }) => {
           <p className={`text-xl font-bold`}>{career.Position}</p>
           <p
             className={`text-xl italic`}
-          >{`${career.Start} - ${career.End}`}</p>
+          >{career.Start && career.End !== null ? `${career.Start} - ${career.End}` : ""}</p>
         </div>
       </div>
     </div>
