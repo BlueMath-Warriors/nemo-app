@@ -102,7 +102,7 @@ const CareerPath = () => {
                 />
               </div>
               <div className="flex flex-col mt-12 mb-12">
-                <h3 className="text-3xl font-medium mb-6 text-center">
+                <h3 className="text-3xl font-medium mb-8 text-center">
                   Study How They Got Here
                 </h3>
                 <div className="grid grid-cols-6 gap-2 items-center">

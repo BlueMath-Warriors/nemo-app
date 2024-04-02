@@ -1,6 +1,10 @@
 import Image from "next/image";
 
 const PersonProfile = ({ data, handleUserBioRoute }) => {
+  const decodedProfileImg = data.profile_img
+    ? decodeURIComponent(data.profile_img)
+    : "/images/default_image.png";
+
   const splitNameByWhitespace = (name) => {
     const words = name.split(" ");
     const half = Math.ceil(words.length / 2);
@@ -18,17 +22,17 @@ const PersonProfile = ({ data, handleUserBioRoute }) => {
     >
       <div className="relative">
         <Image
-          src={data.profile_img}
-          width={90}
-          height={90}
+          src={decodedProfileImg}
+          width={120}
+          height={120}
           className="rounded-full"
           alt="profile"
         />
         <div className="absolute bottom-[-2px] right-[-10px]">
           <Image
             src={"/images/discord.png"}
-            width={35}
-            height={35}
+            width={45}
+            height={45}
             className="rounded-full"
             alt="logo"
           />

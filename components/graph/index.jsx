@@ -4,6 +4,9 @@ import { Bar, Pie } from "react-chartjs-2";
 const Graph = ({ data1, label1, data2, label2 }) => {
   const options = {
     plugins: {
+      tooltip: {
+        enabled: false, // Disable tooltips
+      },
       legend: {
         position: "bottom",
         labels: {

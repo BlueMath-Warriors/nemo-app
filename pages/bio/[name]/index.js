@@ -13,30 +13,30 @@ const Bio = () => {
   const [educations, setEducations] = useState([]);
   const [skills, setSkills] = useState([
     {
-      "title": "Software Engineering",
-      "endorsements": 24
+      title: "Software Engineering",
+      endorsements: 24,
     },
     {
-      "title": "Data Science",
-      "endorsements": 20
+      title: "Data Science",
+      endorsements: 20,
     },
     {
-      "title": "Artificial Intelligence",
-      "endorsements": 16
+      title: "Artificial Intelligence",
+      endorsements: 16,
     },
     {
-      "title": "Web Developemnt",
-      "endorsements": 19
+      title: "Web Developemnt",
+      endorsements: 19,
     },
     {
-      "title": "DevOps",
-      "endorsements": 36
-    }
-
+      title: "DevOps",
+      endorsements: 36,
+    },
   ]);
   const [experiences, setExperiences] = useState([]);
   const [info, setInfo] = useState({});
-  const dummyDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum";
+  const dummyDescription =
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum";
   useEffect(() => {
     if (router.query.name) {
       const filtered = jsonData.filter(
@@ -51,8 +51,8 @@ const Bio = () => {
           name: data.Name || "",
           tagline: (data.Job ? data.Job + ", " : "") + (data.Company || ""),
           location: data?.Location || "",
-          description: data?.Description || dummyDescription,
-          profileImg: data?.profile_img || "",
+          description: data?.gpt_summary || dummyDescription,
+          profileImg: data?.profile_img || "/images/default_image.png",
         });
       }
     }
@@ -104,7 +104,7 @@ const Bio = () => {
 
         {/* Career TimeLine */}
         <div className="relative w-full flex flex-col items-center justify-center border-t-8 border-black px-6 lg:px-12 xl:px-16  pt-8 pb-28 bg-[#424769]">
-        <h2
+          <h2
             className={
               "relative drop-shadow-2xl text-nemo-dark bg-nemo-light px-8 py-4 rounded-lg text-5xl top-[-75px] border-2 border-black " +
               styles.customShadow
@@ -112,10 +112,9 @@ const Bio = () => {
           >
             Career
           </h2>
-            <div className="flex mt-56 mb-36 w-full">
-            <HorizontalTimeline careers={experiences.slice(0, 6)}/>
-            </div>
-
+          <div className="flex mt-56 mb-36 w-full">
+            <HorizontalTimeline careers={experiences.slice(0, 6)} />
+          </div>
         </div>
 
         {/* Education Details */}
