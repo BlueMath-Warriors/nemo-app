@@ -38,7 +38,7 @@ export default function Home() {
         <div className="flex flex-col md:flex-row gap-10 items-center justify-center px-8">
           <div className="relative flex flex-col justify-center items-center px-6 bg-nemo-blue-light gap-4 w-full md:w-[30%] h-[200px] rounded-lg">
             <StatusTag text={"Live Now"} variant={"teal"} />
-            <h2 className="text-2xl lg:text-2xl xl:text-3xl font-bold text-nemo-dark text-center">
+            <h2 className="text-2xl md:text-xl lg:text-xl xl:text-2xl font-bold text-nemo-dark text-center">
               Browse our Database
             </h2>
             <Search />
@@ -46,14 +46,14 @@ export default function Home() {
           <div className="relative flex justify-center items-center px-6 bg-nemo-blue-light w-full md:w-[30%] h-[200px] text-center rounded-lg">
             <StatusTag text={"Coming Soon"} variant={"blue"} />
 
-            <p className="text-nemo-dark font-bold text-2xl lg:text-3xl xl:text-4xl cursor-pointer">
+            <p className="text-nemo-dark font-bold text-3xl md:text-xl lg:text-2xl xl:text-3xl cursor-pointer">
               Use our Virtual Career Coach
             </p>
           </div>
           <div className="relative flex justify-center items-center px-6 bg-nemo-blue-light w-full md:w-[30%] h-[200px] text-center rounded-lg ">
             <StatusTag text={"Coming Soon"} variant={"blue"} />
 
-            <p className="text-nemo-dark font-bold text-2xl lg:text-3xl xl:text-4xl cursor-pointer">
+            <p className="text-nemo-dark font-bold text-3xl md:text-xl lg:text-2xl xl:text-3xl cursor-pointer">
               Search our Job Board
             </p>
           </div>
