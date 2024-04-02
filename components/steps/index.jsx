@@ -3,7 +3,7 @@ import { useState } from "react";
 const StepBar = ({ setStepActive }) => {
   const [activeStep, setActiveStep] = useState("Education");
 
-  const steps = ["Education", "First Role", "Mid Role", "Unicorn Role"];
+  const steps = ["Education", "First Role", "Mid Career", "Unicorn Role"];
 
   const handleClick = (step, index) => {
     setActiveStep(step);
