@@ -28,7 +28,7 @@ const TimelinePartition = ({ career, index }) => {
   };
 
   return (
-    <div key={index} className={"group w-full rounded relative cursor-pointer " + poppins.className} >
+    <div key={index} className={"w-full rounded relative cursor-pointer " + poppins.className} >
       <div
         className={`timeline-circle relative w-8 h-8 rounded-full ${index % 2 === 0 ? "top-[-100px]" : "top-[-20px]"} bg-[#B5C0D0] ${backgroundVariants[index]}`}
       ></div>
