@@ -15,6 +15,7 @@ import {
   UnicornRoleCompanyStageAtJoin,
   UnicornRoleLevelWhenJoining,
 } from "@/assets/graph-data.js";
+import Search from "@/components/search";
 
 const CareerPath = () => {
   const router = useRouter();
@@ -83,6 +84,12 @@ const CareerPath = () => {
               <p className="text-xl font-normal mt-3 text-gray-200">
                 We studied dozens of their careers to map their path to the top.
               </p>
+              <div className="flex flex-col justify-center items-center px-6 bg-nemo-blue-light gap-4 w-full h-[200px] rounded-lg mt-10">
+                <h2 className="text-xl xl:text-2xl font-bold text-nemo-dark text-center">
+                  Browse other roles
+                </h2>
+                <Search isSearchFromMain={false} />
+              </div>
             </div>
           </div>
 

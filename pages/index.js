@@ -33,7 +33,9 @@ export default function Home() {
         <h2 className="text-4xl md:text-5xl font-bold text-nemo-light text-center mb-2">
           Introducing Nemo
         </h2>
-        <p className="text-xl md:text-3xl text-nemo-light text-center mb-12">Your next-generation job search tool</p>
+        <p className="text-xl md:text-3xl text-nemo-light text-center mb-12">
+          Your next-generation job search tool
+        </p>
 
         <div className="flex flex-col md:flex-row gap-10 items-center justify-center px-8">
           <div className="relative flex flex-col justify-center items-center px-6 bg-nemo-blue-light gap-4 w-full md:w-[30%] h-[200px] rounded-lg">
@@ -41,7 +43,7 @@ export default function Home() {
             <h2 className="text-2xl md:text-xl lg:text-xl xl:text-2xl font-bold text-nemo-dark text-center">
               Browse our Database
             </h2>
-            <Search />
+            <Search isSearchFromMain={true} />
           </div>
           <div className="relative flex justify-center items-center px-6 bg-nemo-blue-light w-full md:w-[30%] h-[200px] text-center rounded-lg">
             <StatusTag text={"Coming Soon"} variant={"blue"} />
