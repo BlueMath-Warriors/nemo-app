@@ -23,10 +23,10 @@ const Navbar = () => {
         </li>
         <li>
           <a
-            href="#"
+            href="/data"
             className="text-nemo-light text-lg md:text-xl hover:text-gray-300"
           >
-            Data
+            Data Pipeline
           </a>
         </li>
       </ul>
