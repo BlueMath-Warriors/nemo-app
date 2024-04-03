@@ -43,8 +43,8 @@ const CareerPath = () => {
         } else if (stepActive === 1) {
           setData1(item.GraphData.FirstJobFunction);
           setData2(item.GraphData.YearsInJob);
-          setLabel1("Function");
-          setLabel2("Promotion");
+          setLabel1("First Job Function");
+          setLabel2("Years At First Job");
         } else if (stepActive === 2) {
           setData1(item.GraphData.MidCareerPreUnicorn);
           setData2(item.GraphData.MidCareerFunction);
@@ -55,8 +55,8 @@ const CareerPath = () => {
           setData2(item.GraphData.YearsPostCollege);
           setLabel1(
             router.query.title === "CEO"
-              ? "Prior Companies Founded"
-              : "Company Stage At Join"
+              ? "Companies Founded Before Unicorn"
+              : "Years Post-College Until Founding Unicorn"
           );
           setLabel2(
             router.query.title === "CEO"

@@ -13,6 +13,10 @@ const Graph = ({ data1, label1, data2, label2, stepActive, graphTextData }) => {
       },
       datalabels: {
         formatter: (value, ctx) => {
+          if (value === 0 || value === 0.0) {
+            value = "";
+            return value;
+          }
           let sum = ctx.chart.data.datasets[0].data.reduce((a, b) => a + b, 0);
           let percentage = ((value * 100) / sum).toFixed(0) + "%";
 
@@ -47,15 +51,19 @@ const Graph = ({ data1, label1, data2, label2, stepActive, graphTextData }) => {
   return (
     <>
       <div className="mt-4 flex justify-center items-center">
-        <p className="w-[33%] h-[380px] rounded pt-1 pl-6 pr-6 text-white mr-2 text-[13px] min-[1280px]:text-sm min-[1400px]:text-base text-justify">
+        <p className="w-[33%] h-[380px] rounded pt-1 xl:pt-0 pl-6 pr-6 text-white mr-2 text-[14px] min-[1280px]:text-base min-[1400px]:text-base text-justify flex items-center">
           {graphTextData[stepActive]}
         </p>
         <div className="w-[33%] h-[380px] rounded-lg bg-nemo-dark-graph mt-4 p-6 flex flex-col justify-center items-center text-black mr-4 drop-shadow-xl">
-          <h2 className="text-white text-xl font-semibold my-1">{label1}</h2>
+          <h2 className="text-white text-xl font-semibold my-1 text-center">
+            {label1}
+          </h2>
           <Pie data={data1} options={options} />
         </div>
         <div className="w-[33%] h-[380px] rounded-lg bg-nemo-dark-graph mt-4 p-6 flex flex-col justify-center items-center text-black drop-shadow-xl">
-          <h2 className="text-white text-xl font-semibold my-1">{label2}</h2>
+          <h2 className="text-white text-xl font-semibold my-1 text-center">
+            {label2}
+          </h2>
           <Pie data={data2} options={options} />
         </div>
       </div>
