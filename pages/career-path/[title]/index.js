@@ -85,7 +85,7 @@ const CareerPath = () => {
                 We studied dozens of their careers to map their path to the top.
               </p>
               <div className="flex flex-col justify-center items-center px-6 bg-nemo-blue-light gap-4 w-full h-[200px] rounded-lg mt-10">
-                <h2 className="text-xl xl:text-2xl font-bold text-nemo-dark text-center">
+                <h2 className="text-sm font-normal lg:text-[16px] xl:text-[20px] lg:font-normal text-nemo-dark text-center">
                   Browse other roles
                 </h2>
                 <Search isSearchFromMain={false} />
