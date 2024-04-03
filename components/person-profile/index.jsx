@@ -5,6 +5,17 @@ const PersonProfile = ({ data, handleUserBioRoute }) => {
     ? decodeURIComponent(data.profile_img)
     : "/images/default_image.png";
 
+  //Checking only first 3 indexes of the list 
+  //From any first 3 indexes if logo found not null then that will be used otherwise 
+  //default logo image will be used.
+  const companyLogo = data.Experiences[0].company_logo
+    ? data.Experiences[0].company_logo
+    : data.Experiences.length > 1 && data.Experiences[1].company_logo
+    ? data.Experiences[1].company_logo
+    : data.Experiences.length > 2 && data.Experiences[2].company_logo
+    ? data.Experiences[2].company_logo
+    : "/images/default_logo.png";
+
   const splitNameByWhitespace = (name) => {
     const words = name.split(" ");
     const half = Math.ceil(words.length / 2);
@@ -30,7 +41,7 @@ const PersonProfile = ({ data, handleUserBioRoute }) => {
         />
         <div className="absolute bottom-[-2px] right-[-10px]">
           <Image
-            src={"/images/discord.png"}
+            src={companyLogo}
             width={45}
             height={45}
             className="rounded-full"
