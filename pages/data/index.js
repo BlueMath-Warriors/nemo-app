@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Layout from "../layout";
 
-const About = () => {
+const DataPipeline = () => {
   return (
     <Layout>
       <section className="flex flex-col mx-auto flex-1 gap-8 items-start max-w-[1800px] px-6 md:px-16 py-6 md:py-16 lg:py-16 w-full text-nemo-blue-light text-left">
@@ -111,9 +111,4 @@ const About = () => {
   );
 };
 
-export default About;
-
-//
-//
-//
-//
+export default DataPipeline;
