@@ -5,22 +5,15 @@ import StepBar from "@/components/steps/index";
 import Graph from "@/components/graph/index";
 import jsonData from "@/assets/data.json";
 import PersonProfile from "@/components/person-profile/index";
-import {
-  EduUnderGradGraph,
-  EduHighSchoolGraph,
-  FirstJobFunction,
-  FirstJobPromotion,
-  MidCareerPreUnicorn,
-  MidCareerFunction,
-  UnicornRoleCompanyStageAtJoin,
-  UnicornRoleLevelWhenJoining,
-} from "@/assets/graph-data.js";
+import { EduUnderGradGraph, EduHighSchoolGraph } from "@/assets/graph-data.js";
 import Search from "@/components/search";
+import { GraphIntroText } from "@/assets/graph-intro-text.js";
 
 const CareerPath = () => {
   const router = useRouter();
   const [queryData, setQueryData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
+  const [graphTextData, setGraphTextData] = useState({});
   const [stepActive, setStepActive] = useState(0);
   const [data1, setData1] = useState(EduUnderGradGraph);
   const [data2, setData2] = useState(EduHighSchoolGraph);
@@ -34,32 +27,46 @@ const CareerPath = () => {
         (entry) => entry.Job.toLowerCase() === router.query.title.toLowerCase()
       );
       setFilteredData(filtered);
-    }
-  }, [router.query.title]);
 
-  useEffect(() => {
-    if (stepActive === 0) {
-      setData1(EduUnderGradGraph);
-      setData2(EduHighSchoolGraph);
-      setLabel1("Undergrad Institution");
-      setLabel2("Highest Schooling Level");
-    } else if (stepActive === 1) {
-      setData1(FirstJobFunction);
-      setData2(FirstJobPromotion);
-      setLabel1("Function");
-      setLabel2("Promotion");
-    } else if (stepActive === 2) {
-      setData1(MidCareerPreUnicorn);
-      setData2(MidCareerFunction);
-      setLabel1("# of Jobs Pre-Unicorn");
-      setLabel2("Most Common Function");
-    } else {
-      setData1(UnicornRoleCompanyStageAtJoin);
-      setData2(UnicornRoleLevelWhenJoining);
-      setLabel1("Company Stage At Join");
-      setLabel2("Level When Joining");
+      const item = GraphIntroText.find(
+        (item) => item.id === router.query.title
+      );
+
+      setGraphTextData(item.data);
+
+      if (item) {
+        if (stepActive === 0) {
+          setData1(item.GraphData.EduUnderGrad);
+          setData2(item.GraphData.EduHighSchool);
+          setLabel1("Undergrad Institution");
+          setLabel2("Highest Schooling Level");
+        } else if (stepActive === 1) {
+          setData1(item.GraphData.FirstJobFunction);
+          setData2(item.GraphData.YearsInJob);
+          setLabel1("Function");
+          setLabel2("Promotion");
+        } else if (stepActive === 2) {
+          setData1(item.GraphData.MidCareerPreUnicorn);
+          setData2(item.GraphData.MidCareerFunction);
+          setLabel1("# of Jobs Pre-Unicorn");
+          setLabel2("Most Common Function");
+        } else {
+          setData1(item.GraphData.PriorCompaniesFounded);
+          setData2(item.GraphData.YearsPostCollege);
+          setLabel1(
+            router.query.title === "CEO"
+              ? "Prior Companies Founded"
+              : "Company Stage At Join"
+          );
+          setLabel2(
+            router.query.title === "CEO"
+              ? "Years Post-College"
+              : "Level When Joining"
+          );
+        }
+      }
     }
-  }, [stepActive]);
+  }, [router.query.title, stepActive]);
 
   const handleUserBioRoute = (name) => {
     const encodedName = encodeURIComponent(name);
@@ -106,6 +113,8 @@ const CareerPath = () => {
                   data2={data2}
                   label1={label1}
                   label2={label2}
+                  stepActive={stepActive}
+                  graphTextData={graphTextData}
                 />
               </div>
               <div className="flex flex-col mt-12 mb-12">
