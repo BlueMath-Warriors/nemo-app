@@ -99,7 +99,7 @@ export const GraphIntroText = [
         datasets: [
           {
             label: "Most Common Function",
-            data: [23.4, 10.6, 21.3, 44.7, 0.0],
+            data: [23.4, 10.6, 21.3, 44.7, 0],
             backgroundColor: [
               "rgba(255, 99, 132, 0.6)",
               "rgba(54, 162, 235, 0.6)",
