@@ -47,14 +47,14 @@ const Graph = ({ data1, label1, data2, label2, stepActive, graphTextData }) => {
   return (
     <>
       <div className="mt-4 flex justify-center items-center">
-        <p className="w-[33%] h-[360px] rounded pt-1 p-6 text-white mr-2">
+        <p className="w-[33%] h-[380px] rounded pt-1 pl-6 pr-6 text-white mr-2 text-[13px] min-[1280px]:text-sm min-[1400px]:text-base text-justify">
           {graphTextData[stepActive]}
         </p>
-        <div className="w-[33%] h-[360px] rounded-lg bg-nemo-dark-graph mt-4 p-6 flex flex-col justify-center items-center text-black mr-4 drop-shadow-xl">
+        <div className="w-[33%] h-[380px] rounded-lg bg-nemo-dark-graph mt-4 p-6 flex flex-col justify-center items-center text-black mr-4 drop-shadow-xl">
           <h2 className="text-white text-xl font-semibold my-1">{label1}</h2>
           <Pie data={data1} options={options} />
         </div>
-        <div className="w-[33%] h-[360px] rounded-lg bg-nemo-dark-graph mt-4 p-6 flex flex-col justify-center items-center text-black drop-shadow-xl">
+        <div className="w-[33%] h-[380px] rounded-lg bg-nemo-dark-graph mt-4 p-6 flex flex-col justify-center items-center text-black drop-shadow-xl">
           <h2 className="text-white text-xl font-semibold my-1">{label2}</h2>
           <Pie data={data2} options={options} />
         </div>

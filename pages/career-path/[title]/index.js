@@ -91,7 +91,7 @@ const CareerPath = () => {
               <p className="text-xl font-normal mt-3 text-gray-200">
                 We studied dozens of their careers to map their path to the top.
               </p>
-              <div className="flex flex-col justify-center items-center px-6 bg-nemo-blue-light gap-4 w-full h-[200px] rounded-lg mt-10">
+              <div className="flex flex-col justify-center items-center px-6 bg-nemo-blue-light gap-4 w-full lg:h-[130px] xl:h-[140px] rounded-lg mt-10">
                 <h2 className="text-sm font-normal lg:text-[16px] xl:text-[20px] lg:font-normal text-nemo-dark text-center">
                   Browse other roles
                 </h2>
@@ -117,8 +117,8 @@ const CareerPath = () => {
                   graphTextData={graphTextData}
                 />
               </div>
-              <div className="flex flex-col mt-12 mb-12">
-                <h3 className="text-3xl font-medium mb-8 text-center">
+              <div className="flex flex-col mt-20 mb-12">
+                <h3 className="text-3xl font-medium mb-10 text-center">
                   Study How They Got Here
                 </h3>
                 <div className="grid grid-cols-6 gap-2 items-center">
