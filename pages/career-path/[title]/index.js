@@ -44,11 +44,11 @@ const CareerPath = () => {
           setData1(item.GraphData.FirstJobFunction);
           setData2(item.GraphData.YearsInJob);
           setLabel1("First Job Function");
-          setLabel2("Years At First Job");
+          setLabel2("Years Spent At First Job");
         } else if (stepActive === 2) {
           setData1(item.GraphData.MidCareerPreUnicorn);
           setData2(item.GraphData.MidCareerFunction);
-          setLabel1("# of Jobs Pre-Unicorn");
+          setLabel1("Number of Roles Before Joining Unicorn");
           setLabel2("Most Common Function");
         } else {
           setData1(item.GraphData.PriorCompaniesFounded);
@@ -56,11 +56,11 @@ const CareerPath = () => {
           setLabel1(
             router.query.title === "CEO"
               ? "Companies Founded Before Unicorn"
-              : "Years Post-College Until Founding Unicorn"
+              : "Unicorn Stage When They Joined"
           );
           setLabel2(
             router.query.title === "CEO"
-              ? "Years Post-College"
+              ? "Years Between Ending College and Founding Unicorn"
               : "Level When Joining"
           );
         }
